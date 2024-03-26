@@ -1,0 +1,505 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Tibetan:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Serif Tibetan", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #ffffff;
+}
+
+header {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 200px;
+  transition: background-color 0.3s ease;
+}
+
+header.active {
+  background: transparent;
+  backdrop-filter: blur(10px);
+}
+
+header .brand {
+  color: rgb(233, 227, 227);
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+header .navigation {
+  position: relative;
+}
+
+header .navigation .navigation-items a {
+  position: relative;
+  color: rgb(233, 227, 227);
+  font-size: 1em;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:before {
+  content: "";
+  position: absolute;
+  background: rgb(233, 227, 227);
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before {
+  width: 100%;
+}
+
+section {
+  padding: 60px 100px;
+  /* background-size: cover; */
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.chevron {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  opacity: 1;
+  animation: move-chevron 3s ease-out infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: rgb(41, 36, 36);
+}
+
+.chevron:before {
+  left: 0;
+  transform: skewY(30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skewY(-30deg);
+}
+
+@keyframes move-chevron {
+  25% {
+    opacity: 1;
+  }
+  33.3% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  66.6% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.5);
+  }
+}
+
+.home {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: rgb(230, 223, 175);
+  overflow-wrap: break-word;
+}
+
+.home::before {
+  z-index: 777;
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.home .container {
+  z-index: 888;
+  color: #d6d6cf;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.home .container h1 {
+  font-size: 4em;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 75px;
+  margin-bottom: 40px;
+}
+
+.home .container h1 span {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.home .container p {
+  margin-bottom: 65px;
+  text-align: justify;
+}
+
+.home .container a {
+  background: #767e8a;
+  padding: 1px 20px;
+  color: #dcdcdf;
+  font-size: 1em;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.home .media-icons {
+  z-index: 888;
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease;
+}
+
+.home .media-icons a {
+  color: rgb(41, 36, 36);
+  font-size: 1.6em;
+}
+
+.home .media-icons.floating {
+  position: fixed;
+  transform: translateY(-50%); /* Adjust the top position as needed */
+  opacity: 1; /* Show the icons */
+}
+
+.home .media-icons a:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.home .media-icons a:hover {
+  transform: scale(1.3);
+}
+
+.home video {
+  z-index: 000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header {
+  background-color: #353535;
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0px;
+}
+
+/* .header::before{
+  content:"";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  height: 100px;
+  clip-path: polygon(100% 0,0 100%, 100% 100%);
+} */
+
+.header h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 3em;
+  font-weight: 700;
+  color: aliceblue;
+}
+
+.ticketing {
+  background-color: #353535;
+}
+.ticketing .detail img {
+  width: 100%;
+}
+.curve {
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  bottom: 0;
+}
+
+.ticketing iframe {
+  margin-bottom: 30px;
+  width: 100%;
+  height: 500px;
+}
+
+.ticketing a {
+  background: #767e8a;
+  padding: 1px 20px;
+  color: #f8f8f8;
+  font-size: 1em;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+@media (max-width: 544px) {
+  header {
+    padding: 12px 20px;
+  }
+
+  section {
+    padding: 50px 20px;
+  }
+
+  .home .media-icons {
+    display: none;
+  }
+
+  .home .container {
+    width: 100%;
+  }
+
+  .home .container h1 {
+    font-size: 3.5em; /* Adjust the font size as needed for smaller screens */
+    line-height: 60px; /* Adjust the line height */
+    margin-bottom: 20px;
+  }
+
+  .home .container h1 span {
+    font-size: 1em; /* Adjust the font size of the span */
+  }
+
+  .home .container p {
+    font-size: 1.2em;
+  }
+
+  .header {
+    background-color: #353535;
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 430px) {
+  header {
+    padding: 12px 20px;
+  }
+
+  section {
+    padding: 50px 20px; /* Adjust the padding according to your design */
+  }
+
+  .home .media-icons {
+    right: 10px; /* Adjust the position of media icons */
+  }
+
+  .home .media-icons a {
+    font-size: 0.8em;
+  }
+
+  .home .container {
+    width: 100%;
+  }
+
+  .home .container h1 {
+    font-size: 2.5em; /* Adjust the font size as needed for smaller screens */
+    line-height: 60px; /* Adjust the line height */
+    margin-bottom: 20px;
+  }
+
+  .home .container h1 span {
+    font-size: 0.8em; /* Adjust the font size of the span */
+  }
+
+  .home video {
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 1040px) {
+  header {
+    padding: 12px 20px;
+  }
+
+  section {
+    padding: 60px 20px;
+  }
+
+  .home .media-icons {
+    right: 15px;
+  }
+
+  header .navigation {
+    display: none;
+  }
+
+  header .navigation {
+    display: none;
+  }
+
+  header .navigation.active {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(1, 1, 1, 0.5);
+    transition: 0.3s ease;
+  }
+
+  header .navigation .navigation-items a {
+    color: whitesmoke;
+    font-size: 1.2em;
+    margin: 20px;
+  }
+
+  header .navigation .navigation-items a::before {
+    background: #121212;
+    height: 5px;
+  }
+
+  header .navigation.active .navigation-items {
+    background: #121212;
+    width: 600px;
+    max-width: 600px;
+    margin: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 25px rgba(1 1 1/ 20%);
+  }
+
+  .menu-btn {
+    background: url(menu.svg) no-repeat;
+    background-size: 30px;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .menu-btn.active {
+    z-index: 999;
+    background: url(close.svg) no-repeat;
+    background-size: 25px;
+    background-position: center;
+    transition: 0.3s ease;
+  }
+
+  .ticketing iframe {
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .home .container h1 {
+    font-size: 2.3em; /* Adjust the font size as needed for smaller screens */
+    line-height: 60px; /* Adjust the line height */
+    margin-bottom: 20px;
+  }
+
+  .home .container h1 span {
+    font-size: 0.6em; /* Adjust the font size of the span */
+  }
+
+  .home .container p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 613px) {
+  .home .container p {
+    font-size: 0.9em; /* Adjust the font size of the span */
+  }
+}
+
+@media (max-width: 420px) {
+  .home .container h1 {
+    font-size: 1.7em; /* Adjust the font size as needed for smaller screens */
+    line-height: 60px; /* Adjust the line height */
+    margin-bottom: 20px;
+  }
+
+  .home .container h1 span {
+    font-size: 0.7em; /* Adjust the font size of the span */
+  }
+  
+  .home video {
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

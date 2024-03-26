@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/7415c3dd6b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style_home.css" />
+    <title>Sandyakala</title>
+  </head>
+
+  <body>
+    <header>
+      <a href="#home" class="brand">SANDYAKALA</a>
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <div class="navigation-items">
+          <a href="#home">Home</a>
+          <a href="#ticket">Ticket</a>
+          <!-- <a href="#">Cast</a> -->
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </header>
+    <section class="home" id="home">
+        <video
+        src="Teaser FINAL.mp4"
+        class="video-slide"
+        autoplay
+        muted
+        loop
+      ></video>
+      <div class="container mt-5">
+        <h1>Sandyakala<br /><span>Musikal by 12 MIPA 2</span></h1>
+        <p>
+          Pangeran Dewata (Arnoldus Christiano Ronaldo Tonda Wogo) jatuh cinta pada pandangan pertama dengan Putri Parwati (Amalia Jukietta Helmi). Mereka pun akhirnya disatukan dalam ikatan pernikahan. Namu, tampaknya ada yang tidak suka dengan pernikahan mereka. Berbagai upaya dilakukan untuk memisahkan Pangeran Dewata dan Putri Parwati. Bagaimanakah cara mereka untuk bertahan?
+        </p>
+        <a href="https://www.instagram.com/sandyakala.musikal">Tonton Teaser</a>
+      </div>
+      <div class="media-icons">
+        <a href="https://www.instagram.com/sandyakala.musikal" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://www.wa.me/"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <div class="arrows">
+        <div class="chevron"></div>
+      </div>
+    </section>
+    <section class="header" id="ticket">
+      <h2>Ticket</h2>
+    </section>
+    <section class="ticketing">
+        <div class="detail">
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRigi2g1uJWaeGMcuKbz-iUuJHUrpF_QErD4zV-dE3e52HDsBK7hGEJWnJ_Qyq3GShqzS0YrGLysK5b/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSej7ySqibgbBxMg48_GeMD2YwQ9LoxxgBXGLn3AwUZd91FrEw/viewform?embedded=true" width="640" height="1992" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+        </div>
+        <!-- <a href="">Booking your seat NOW!!!</a> -->
+    </section>
+    <!-- <p id="indonesiaTimeDisplay"></p> -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript">
+      const menuBtn = document.querySelector(".menu-btn");
+      const navigation = document.querySelector(".navigation");
+      const products = document.querySelectorAll(".produk");
+
+
+      document.querySelector('.arrows').addEventListener('click', function() {
+        window.scrollBy({
+            top: window.innerHeight,
+            behavior: 'smooth'
+        });
+    });
+
+      document.querySelector(".arrows").addEventListener("click", function () {
+        window.scrollBy({
+          top: window.innerHeight,
+          behavior: "smooth",
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const header = document.querySelector("header");
+        const mediaIcons = document.querySelector(".media-icons");
+
+        // Determine the scroll point where you want the icons to start floating
+        const scrollThreshold = 25;
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > scrollThreshold) {
+            header.classList.add("active");
+            mediaIcons.classList.add("floating");
+          } else {
+            header.classList.remove("active");
+            mediaIcons.classList.remove("floating");
+          }
+        });
+
+        menuBtn.addEventListener("click", () => {
+          menuBtn.classList.toggle("active");
+          navigation.classList.toggle("active");
+        });
+        // Store the scroll position when the page unloads
+        window.addEventListener("beforeunload", function () {
+          sessionStorage.setItem("scrollPosition", window.scrollY);
+        });
+
+        // Restore the scroll position when the page loads
+        window.addEventListener("load", function () {
+          var scrollPosition = sessionStorage.getItem("scrollPosition");
+          if (scrollPosition) {
+            window.scrollTo(0, parseInt(scrollPosition));
+          }
+        });
+      });
+
+      function updateIndonesiaTime() {
+        // Get the current time in Indonesia timezone
+        var indonesiaTime = new Date().toLocaleString("en-US", {
+          timeZone: "Asia/Jakarta",
+        });
+
+        // Update the HTML content to display the Indonesia time
+        document.getElementById(
+          "indonesiaTimeDisplay"
+        ).innerHTML = `Indonesia Time: ${indonesiaTime}`;
+      }
+
+      // Update time every second
+      setInterval(updateIndonesiaTime, 1000);
+
+      // Initial update
+      updateIndonesiaTime();
+    </script>
+  </body>
+</html>
